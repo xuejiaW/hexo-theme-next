@@ -1124,5 +1124,4 @@ images: images
 
 passage_end_tag:
   enabled: true
-
-  # For test
+  
