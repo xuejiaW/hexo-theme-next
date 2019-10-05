@@ -1,8 +1,7 @@
-  <article itemscope itemtype="http://schema.org/Article">
   {##################}
   {### POST BLOCK ###}
   {##################}
-  <div class="post-block {% if is_index %}home{% else %}post{% endif %}">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block {% if is_index %}home{% endif %}" lang="{{ post.lang or post.language or config.language }}">
     <link itemprop="mainEntityOfPage" href="{{ config.url }}{{ url_for(post.path) }}">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -125,12 +124,12 @@
           {%- endif %}
 
           {%- if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.post_views %}
-            <span class="post-meta-item" title="{{ __('post.views') }}">
+            <span class="post-meta-item" title="{{ __('post.views') }}" id="busuanzi_container_page_pv" style="display: none;">
               <span class="post-meta-item-icon">
                 <i class="fa fa-{{ theme.busuanzi_count.post_views_icon }}"></i>
               </span>
               <span class="post-meta-item-text">{{ __('post.views') + __('symbol.colon') }}</span>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              <span id="busuanzi_value_page_pv"></span>
             </span>
           {%- endif %}
 
@@ -196,7 +195,7 @@
           {{ post.description }}
           <!--noindex-->
           {%- if theme.read_more_btn %}
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="{{ url_for(post.path) }}">
                 {{ __('post.read_more') }} &raquo;
               </a>
@@ -207,7 +206,7 @@
           {{ post.excerpt }}
           <!--noindex-->
           {%- if theme.read_more_btn %}
-            <div class="post-button text-center">
+            <div class="post-button">
               <a class="btn" href="{{ url_for(post.path) }}{%- if theme.scroll_to_more %}#more{%- endif %}" rel="contents">
                 {{ __('post.read_more') }} &raquo;
               </a>
@@ -303,8 +302,7 @@
         {%- endif %}
       </footer>
     {%- endif %}
-  </div>
+  </article>
   {######################}
   {### END POST BLOCK ###}
   {######################}
-  </article>
