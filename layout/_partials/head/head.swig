@@ -66,6 +66,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    hostname: new URL('{{ config.url }}').hostname,
     root: '{{ config.root }}',
     scheme: '{{ theme.scheme }}',
     version: '{{ next_version }}',
@@ -88,11 +89,6 @@
     localsearch: {{ theme.local_search | json }},
     path: '{{ config.search.path }}',
     motion: {{ theme.motion | json }},
-    translation: {
-      copy_button: '{{ __("post.copy_button") }}',
-      copy_success: '{{ __("post.copy_success") }}',
-      copy_failure: '{{ __("post.copy_failure") }}'
-    },
     sidebarPadding: 40
   };
 </script>
